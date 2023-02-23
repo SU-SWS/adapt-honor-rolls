@@ -1,9 +1,7 @@
 // in cypress/support/index.ts
 // load type definitions that come with Cypress module
 /// <reference types="cypress" />
-import { mockData } from '../../src/services/megaprofile/mocks/mock-data/mock-data';
-import { maxDataUser } from '../../src/services/megaprofile/mocks/mock-data/constituents';
-
+import { mockData, maxDataUser } from './mockUsers';
 // Now we're a module
 export {};
 
