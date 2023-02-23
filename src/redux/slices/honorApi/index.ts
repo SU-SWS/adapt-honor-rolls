@@ -7,8 +7,4 @@ export const {
   useLazyGetAssetQuery,
   useGetAffiliationsQuery,
   useGetContactQuery,
-  useGetProfileQuery,
-  useGetCoveoTokenQuery,
-  useGetLocationAutocompleteQuery,
-  useGetLocationLookupQuery,
 } = honorApi;
