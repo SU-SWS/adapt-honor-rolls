@@ -1,9 +1,7 @@
 import React from 'react';
-import {
-  AuthenticatedPage,
-  MainLayout,
-  LoadingOverlay,
-} from '../components';
+import { MainLayout } from '../components/Layout/MainLayout';
+import { LoadingOverlay } from '../components/Overlay/LoadingOverlay';
+import { AuthenticatedPage } from '../components/auth/AuthenticatedPage';
 
 const Home = () => (
   <AuthenticatedPage
