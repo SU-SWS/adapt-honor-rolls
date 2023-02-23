@@ -1,0 +1,22 @@
+name: Unit Test
+on:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set the correct Node version using nvm
+        shell: bash -l {0}
+        run: nvm install
+      - uses: bahmutov/npm-install@v1
+        with:
+          useLockFile: false
+      - name: Get Environment Variables
+        run: npm run vault
+        env:
+          VAULT_ROLE_ID: ${{ secrets.VAULT_ROLE_ID }}
+          VAULT_SECRET_ID: ${{ secrets.VAULT_SECRET_ID }}
+      - name: Unit Test
+        run: npm run test

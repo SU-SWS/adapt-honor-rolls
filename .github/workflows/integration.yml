@@ -1,0 +1,74 @@
+name: Cypress Integration Tests
+
+on:
+  pull_request:
+    types: [create, ready_for_review, converted_to_draft, synchronize]
+
+jobs:
+  integration-test:
+    name: Integration Test
+    timeout-minutes: 20
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install Dependencies
+        uses: bahmutov/npm-install@v1
+        with:
+          useLockFile: false
+
+      - name: Cypress Integration Test
+        uses: cypress-io/github-action@v5
+        with:
+          # we have already installed all dependencies above
+          install: false
+          build: npm run build
+          start: |
+            npm run start
+            npm run mock-server:integration
+          wait-on: 'http://localhost:3000'
+          browser: chrome
+          headed: false
+          config: video=false
+        env:
+          NEXT_PUBLIC_CYPRESS_INTEGRATION: ${{ secrets.NEXT_PUBLIC_CYPRESS_INTEGRATION }}
+          API_GATEWAY_AUTH_URL: ${{ secrets.API_GATEWAY_AUTH_URL }}
+          MEGAPROFILE_URL: ${{ secrets.MEGAPROFILE_URL }}
+          ADAPT_AUTH_SESSION_SECRET: ${{ secrets.ADAPT_AUTH_SESSION_SECRET }}
+          DEBUG: ${{ secrets.DEBUG }}
+          ASSET_CLIENT_ACCESS_TOKEN: ${{ secrets.ASSET_CLIENT_ACCESS_TOKEN }}
+          ASSET_CLIENT_ASSET_TOKEN: ${{ secrets.ASSET_CLIENT_ASSET_TOKEN }}
+          ASSET_CLIENT_SPACE_ID: ${{ secrets.ASSET_CLIENT_SPACE_ID }}
+          SECRET: ${{ secrets.SECRET }}
+          TEST_USER_SUID: ${{ secrets.TEST_USER_SUID }}
+          ADAPT_AUTH_SESSION_NAME: ${{ secrets.ADAPT_AUTH_SESSION_NAME }}
+          SITE_URL: http://127.0.0.1:3000
+
+      - name: Integration Test Screenshot Artifacts
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: ./cypress/screenshots
+
+      - name: Integration Test Video Artifacts
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-videos
+          path: ./cypress/videos
+
+      - name: NPM Failure Logs
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: npm-logs
+          path: ~/.npm/_logs

@@ -1,0 +1,40 @@
+/**
+ * External links that are likely to be referenced more than once
+ */
+export const commonExternalLinks = {
+  athletics: 'https://gostanford.com/',
+  axess: 'https://axess.sahr.stanford.edu/',
+  give: 'https://give.stanford.edu/',
+  giving: 'https://giving.stanford.edu',
+  gsbEmailHelp: 'https://www.gsb.stanford.edu/alumni/help/email',
+  honorRolls: 'http://honorrolls.stanford.edu/',
+  makeAGift: 'https://give.stanford.edu',
+  myAccount: 'https://myaccount.stanford.edu/',
+  myAccountEditProfile: 'https://myaccount.stanford.edu/profile',
+  uatMyAccount: 'https://uat.myaccount.stanford.edu/',
+  uatMyAccountEditProfile: 'https://uat.myaccount.stanford.edu/profile',
+  oval: 'https://oval.stanford.edu/',
+  // SAA links
+  saa: 'https://alumni.stanford.edu',
+  saaA11y: 'https://alumni.stanford.edu/accessibility/',
+  saaCard: 'https://cardinalalumni.stanford.edu/get/page/membership/saacard',
+  saaCheckEmail: 'https://cardinalalumni.stanford.edu/tools/mail?level=12&groupname=saa&pgOrg=saa&dbc=y',
+  saaCodeofConduct: 'https://alumni.stanford.edu/code-of-conduct/',
+  saaGsbEmailHelp: 'https://alumni.stanford.edu/perks/email',
+  saaGroups: 'https://alumni.stanford.edu/groups/',
+  saaHelp: 'https://alumni.stanford.edu/help/',
+  saaPrivacy: 'https://alumni.stanford.edu/privacy/',
+  saaTerms: 'https://alumni.stanford.edu/terms/',
+  submitTicket: 'https://stanford.service-now.com/alumni_donor_services?id=sc_cat_item&sys_id=9a91f4b6db890050404aa4cb0b961978',
+  ticket: 'https://stanford.service-now.com/alumni_donor_services',
+  transcript: 'https://studentservices.stanford.edu/my-academic-journey/request-transcripts-certifications/transcripts-alumni',
+  webGivingHistory: 'https://givinghistory.stanford.edu/',
+  // Stanford Schools
+  schoolEd: 'https://ed.stanford.edu/',
+  gsb: 'https://www.gsb.stanford.edu/',
+  schoolEarth: 'https://sustainability.stanford.edu/',
+  schoolEngineering: 'https://engineering.stanford.edu/',
+  schoolHumSci: 'https://humsci.stanford.edu/',
+  schoolLaw: 'https://law.stanford.edu/',
+  schoolMed: 'https://medicine.stanford.edu/',
+};
