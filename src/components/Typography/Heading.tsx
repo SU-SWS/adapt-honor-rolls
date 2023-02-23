@@ -11,7 +11,6 @@ import {
   textAlign,
   textColor,
   textVariant,
-  linkedinIconStyle,
   linkedinWrapperStyle,
 } from './styles';
 

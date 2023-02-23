@@ -13,7 +13,6 @@ import {
   textColor,
   textVariant,
   iconStyle,
-  linkedinIconStyle,
   linkedinWrapperStyle,
 } from './styles';
 import { HeroIcon, HeroIconProps, IconType } from '../HeroIcon';

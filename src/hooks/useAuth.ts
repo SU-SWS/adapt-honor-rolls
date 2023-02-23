@@ -73,20 +73,19 @@ export const useAuth = ({
       if (error) {
         replace(routes.logout('auth_error'));
       } else if (!isAuthenticated && unauthorizedRedirect) {
-       console.log(isAuthenticated);
-        // let redirectUrl: string = unauthorizedRedirect;
+        let redirectUrl: string = unauthorizedRedirect;
 
-        // // Add final_destination to redirect
-        // if (finalDestinationOnRedirect) {
-        //   const [redirectPath, redirectQuery = ''] = redirectUrl.split('?');
-        //   const finalDestination: string = encodeURIComponent(pagePath);
-        //   const finalDestinationQuery: string = `${
-        //     redirectQuery ? `${redirectQuery}&` : ''
-        //   }final_destination=${finalDestination}`;
-        //   redirectUrl = `${redirectPath}?${finalDestinationQuery}`;
-        // }
+        // Add final_destination to redirect
+        if (finalDestinationOnRedirect) {
+          const [redirectPath, redirectQuery = ''] = redirectUrl.split('?');
+          const finalDestination: string = encodeURIComponent(pagePath);
+          const finalDestinationQuery: string = `${
+            redirectQuery ? `${redirectQuery}&` : ''
+          }final_destination=${finalDestination}`;
+          redirectUrl = `${redirectPath}?${finalDestinationQuery}`;
+        }
 
-        // replace(redirectUrl);
+        replace(redirectUrl);
       }
     }
   }, [

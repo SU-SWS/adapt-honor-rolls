@@ -6,7 +6,6 @@ import { Text } from '../Typography';
 import { UserProfileImage } from '../UserProfileImage';
 import { useAuth, useContact } from '../../hooks';
 import { commonExternalLinks as links } from '../../utils/variables';
-import routes from '../../routes';
 import * as styles from './UserMenu.styles';
 import { contactDigitalName } from '../../utils/contact';
 
